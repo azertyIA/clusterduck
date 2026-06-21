@@ -12,6 +12,9 @@
     prefixLength = 24;
   }];
 
-  services.jellyfin.enable = true;
-  services.jellyfin.openFirewall = true;
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user = "ducks";
+  };
 }

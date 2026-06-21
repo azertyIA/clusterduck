@@ -14,6 +14,9 @@
         modules  = [ 
           ./modules/common.nix
           ./modules/networking.nix
+          ./modules/ssh.nix
+          ./modules/users.nix
+          ./modules/packages.nix
           config
         ];
       };

@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
-HOSTS=("duck1" "duck2")
-
-for host in "${HOSTS[@]}"; do
-  echo "===== deploying $host ====="
-
-  nixos-rebuild switch \
-    --flake .#"${host}" \
-    --target-host "${host}" \
-    --use-remote-sudo
-
+for h in duck1 duck2; do
+  rsync -av . $h:/etc/nixos/
+  ssh $h sudo nixos-rebuild switch --flake /etc/nixos#$h
 done

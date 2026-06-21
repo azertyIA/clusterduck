@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  output = { nixpkgs, ... }:
+  outputs = { nixpkgs, ... }:
   let
     system  = "x86_64-linux";
     mkHost = hostName: config:
@@ -16,7 +16,7 @@
           config
         ];
       };
-  in
+  in {
     nixosConfigurations = {
       duck1 = mkHost "duck1" ./hosts/duck1.nix;
       duck2 = mkHost "duck2" ./hosts/duck2.nix;

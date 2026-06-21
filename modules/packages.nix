@@ -6,6 +6,12 @@
     git
     vim
     wget
-    htop
+    tree
+    btop
+
+    tmux
+    pciutils
+    usbutils
+    lshw
   ];
 }

@@ -11,4 +11,7 @@
     address = "10.42.0.11";
     prefixLength = 24;
   }];
+
+  services.jellyfin.enable = true;
+  services.jellyfin.openFirewall = true;
 }

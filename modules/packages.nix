@@ -13,5 +13,6 @@
     pciutils
     usbutils
     lshw
+    jellyfin-desktop
   ];
 }

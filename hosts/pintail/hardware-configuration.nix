@@ -13,20 +13,25 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/870aff7b-9324-4528-a466-2480ddf57ddc";
-      fsType = "ext4";
-    };
+  fileSystems."/" = { 
+    device = "/dev/disk/by-uuid/870aff7b-9324-4528-a466-2480ddf57ddc";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/53BC-2BFD";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = { 
+    device = "/dev/disk/by-uuid/53BC-2BFD";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
+  fileSystems."/mnt/storage" = {
+    device = "/dev/disk/by-label/storage-ssd";
+    fsType = "ext4";
+    options = [ "defaults" "nofail" ]; # nofail ensures the node still boots if the drive is unplugged
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/c4aff716-240c-4add-82cc-3a832dc4d4a2"; }
-    ];
+  swapDevices = [{ 
+    device = "/dev/disk/by-uuid/c4aff716-240c-4add-82cc-3a832dc4d4a2"; 
+  }];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

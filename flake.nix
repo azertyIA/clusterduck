@@ -17,6 +17,7 @@
           ./modules/ssh.nix
           ./modules/users.nix
           ./modules/packages.nix
+          ./modules/docker.nix
           config
         ];
       };

@@ -23,6 +23,11 @@
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
+  fileSystems."/mnt/storage" = {
+    device = "/dev/disk/by-label/storage-ssd";
+    fsType = "ext4";
+    options = [ "defaults" "nofail" ]; # nofail ensures the node still boots if the drive is unplugged
+  };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/7860fecc-b5d6-4fca-a4d4-ddfb42fbb374"; }

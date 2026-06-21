@@ -50,6 +50,8 @@
     ];
   };
 
+  nix.settings.trusted-users = [ "@wheel" ];
+
   # programs.firefox.enable = true;
 
   # List packages installed in system profile.

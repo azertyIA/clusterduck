@@ -2,8 +2,8 @@
 set -euo pipefail
 
 HOSTS=(
-  duck1
-  duck2
+  mallard
+  pintail
 )
 
 for host in "${HOSTS[@]}"; do

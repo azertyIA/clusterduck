@@ -8,18 +8,19 @@
   outputs = { nixpkgs, ... }:
   let
     system  = "x86_64-linux";
-    mkHost = hostName: config:
+    mkHost = config:
       nixpkgs.lib.nixosSystem {
         inherit system;
         modules  = [ 
           ./modules/common.nix
+          ./modules/networking.nix
           config
         ];
       };
   in {
     nixosConfigurations = {
-      duck1 = mkHost "duck1" ./hosts/duck1.nix;
-      duck2 = mkHost "duck2" ./hosts/duck2.nix;
+      mallard = mkHost ./hosts/mallard;
+      pintail = mkHost ./hosts/pintail;
     };
   };
 }

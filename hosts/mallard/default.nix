@@ -3,12 +3,12 @@
 {
   imports =
     [
-      ./duck2-hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
 
-  networking.hostName = "pintail";
+  networking.hostName = "mallard";
   networking.interfaces.eno1.ipv4.addresses = [{
-    address = "10.42.0.12";
+    address = "10.42.0.11";
     prefixLength = 24;
   }];
 }

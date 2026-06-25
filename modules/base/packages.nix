@@ -8,11 +8,9 @@
     wget
     tree
     btop
-
     tmux
     pciutils
     usbutils
     lshw
-    jellyfin-desktop
   ];
 }

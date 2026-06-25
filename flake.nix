@@ -1,5 +1,5 @@
 {
-  description = "Duck Cluster";
+  description = "Clusterduck";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -8,17 +8,13 @@
   outputs = { nixpkgs, ... }:
   let
     system  = "x86_64-linux";
-    mkHost = config:
+    mkHost = hostModule:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        modules  = [ 
-          ./modules/common.nix
-          ./modules/networking.nix
-          ./modules/ssh.nix
-          ./modules/users.nix
-          ./modules/packages.nix
-          ./modules/docker.nix
-          config
+        modules = [ 
+          ./modules/base
+          ./roles/server.nix # tailscale access
+          hostModule
         ];
       };
   in {

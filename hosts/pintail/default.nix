@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -16,7 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     minecraft-server
-    papermc
+    tailscale
   ];
 
   services.minecraft-server = {
@@ -35,4 +35,6 @@
     jvmOpts = "-Xms4G -Xmx4G"; 
     # package = pkgs.papermc;
   };
+
+  services.tailscale.enable = true;
 }

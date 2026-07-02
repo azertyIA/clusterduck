@@ -1,5 +1,5 @@
 {
-  description = "Clusterduck";
+  description = "clusterduck";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -19,8 +19,10 @@
       };
   in {
     nixosConfigurations = {
+      gadwall = mkHost ./hosts/gadwall;
       mallard = mkHost ./hosts/mallard;
       pintail = mkHost ./hosts/pintail;
+      shovelr = mkHost ./hosts/shovelr;
     };
   };
 }

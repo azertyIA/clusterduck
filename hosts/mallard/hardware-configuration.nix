@@ -23,6 +23,7 @@
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
+
   fileSystems."/mnt/storage" = {
     device = "/dev/disk/by-label/storage-ssd";
     fsType = "ext4";

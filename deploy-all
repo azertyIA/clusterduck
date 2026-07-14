@@ -5,6 +5,7 @@ HOSTS=(
   gadwall
   mallard
   pintail
+  shovelr
 )
 
 for host in "${HOSTS[@]}"; do
